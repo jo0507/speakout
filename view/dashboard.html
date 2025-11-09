@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SpeakOut</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <div class="dashboard-container fade-in" id="dashboardPage">
+        <div class="sidebar">
+            <div class="sidebar-logo">
+                <h1>SpeakOut</h1>
+                <p>City Report System</p>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-item active" onclick="showPage('dashboard')">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" onclick="showPage('reports')">
+                    <span class="nav-icon">📋</span>
+                    <span>My Reports</span>
+                </div>
+                <div class="nav-item" onclick="showPage('createReport')">
+                    <span class="nav-icon">➕</span>
+                    <span>Create Report</span>
+                </div>
+                <div class="nav-item" onclick="showPage('profile')">
+                    <span class="nav-icon">👤</span>
+                    <span>Profile</span>
+                </div>
+            </div>
+            <div class="nav-item logout-btn" onclick="logout()">
+                <span class="nav-icon">🚪</span>
+                <span>Logout</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <h2 style="color: #2c3e50; font-size: 24px;">Dashboard</h2>
+                <div class="search-container">
+                    <div class="search-bar">
+                        <span class="search-icon">🔍</span>
+                        <input type="text" placeholder="Search for reports or solutions...">
+                    </div>
+                </div>
+                <div class="user-section">
+                    <div class="notification-btn" onclick="showNotification()">
+                        🔔
+                        <span class="notification-badge"></span>
+                    </div>
+                    <div class="user-info" onclick="showPage('profile')">
+                        <div class="user-avatar">DS</div>
+                        <div class="user-details">
+                            <h3>Dede Sutarjo</h3>
+                            <p>Bandung, Jawa Barat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <div class="welcome-section">
+                    <h2>Good Morning, Dede! 👋</h2>
+                    <p>Here's what's happening with your city reports today</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-value">15</div>
+                        <div class="stat-label">Total Reports</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⏳</div>
+                        <div class="stat-value">3</div>
+                        <div class="stat-label">In Process</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-value">10</div>
+                        <div class="stat-label">Finished</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">❌</div>
+                        <div class="stat-value">2</div>
+                        <div class="stat-label">Rejected</div>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h3>Recent Reports</h3>
+                    <a href="#" class="view-all-link" onclick="showPage('reports')">View All →</a>
+                </div>
+
+                <div class="reports-grid">
+                    <div class="report-card" onclick="showReportDetail()">
+                        <h4>Jalan berlubang di Jl. Merdeka</h4>
+                        <div class="report-id">P202507001</div>
+                        <p style="font-size: 14px; color: #7f8c8d; line-height: 1.6;">The asphalt surface has started to peel and is uneven causing discomfort...</p>
+                        <div class="report-meta">
+                            <span class="report-date">Today</span>
+                            <span class="status-badge status-inprocess">In Process</span>
+                        </div>
+                    </div>
+                    <div class="report-card">
+                        <h4>Trotoar di Jl. Merdeka</h4>
+                        <div class="report-id">P202507202</div>
+                        <p style="font-size: 14px; color: #7f8c8d; line-height: 1.6;">Pedestrian path in poor condition needs immediate attention...</p>
+                        <div class="report-meta">
+                            <span class="report-date">Today</span>
+                            <span class="status-badge status-rejected">Rejected</span>
+                        </div>
+                    </div>
+                    <div class="report-card">
+                        <h4>Lampu Jalan Mati di Jl. Merdeka</h4>
+                        <div class="report-id">P202507050</div>
+                        <p style="font-size: 14px; color: #7f8c8d; line-height: 1.6;">Street lights not functioning, causing safety concerns at night...</p>
+                        <div class="report-meta">
+                            <span class="report-date">Yesterday</span>
+                            <span class="status-badge status-finished">Finished</span>
+                        </div>
+                    </div>
+                    <div class="report-card">
+                        <h4>Sampah Liar di Jl. Merdeka</h4>
+                        <div class="report-id">P202507301</div>
+                        <p style="font-size: 14px; color: #7f8c8d; line-height: 1.6;">Illegal dumping creating environmental and health hazards...</p>
+                        <div class="report-meta">
+                            <span class="report-date">2 days ago</span>
+                            <span class="status-badge status-finished">Finished</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+  <script src="../assets/script.js"></script>

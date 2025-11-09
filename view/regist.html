@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+ <body>
+ <!-- Register Page -->
+    <div class="auth-container fade-in" id="registerPage">
+        <div class="hero-section">
+            <div class="hero-illustration">👥</div>
+            <div class="hero-text">
+                <h2>Join SpeakOut Community</h2>
+                <p>Start making a difference in your city today</p>
+            </div>
+        </div>
+        <div class="form-section">
+            <div class="logo-section">
+                <h1>Create Account</h1>
+                <p style="margin-top: 8px; font-size: 14px;">Already Registered? <a href="../index.html" onclick="goToLogin(event)">Log in here</a></p>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                ✓ Registration successful! Redirecting to login...
+            </div>
+
+            <form id="registerForm" onsubmit="handleRegister(event)">
+                <div class="form-group">
+                    <input type="text" id="fullName" placeholder="Full Name" required minlength="3">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="nik" placeholder="NIK (ID Number)" required pattern="[0-9]{16}" title="NIK must be 16 digits">
+                </div>
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <select id="city" required>
+                        <option value="">Choose Your City</option>
+                        <option value="jakarta">Jakarta</option>
+                        <option value="bandung">Bandung</option>
+                        <option value="surabaya">Surabaya</option>
+                        <option value="medan">Medan</option>
+                        <option value="semarang">Semarang</option>
+                        <option value="yogyakarta">Yogyakarta</option>
+                        <option value="malang">Malang</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input type="password" id="registerPassword" placeholder="Password (min 6 characters)" required minlength="6">
+                        <span class="password-toggle" onclick="togglePassword('registerPassword')">👁️</span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign up</button>
+            </form>
+            <div class="text-center" style="margin-top: 20px;">
+                <a href="../index.html" onclick="goToLogin(event)">← Back to Login</a>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/script.js"></script>

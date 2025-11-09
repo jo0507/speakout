@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakOut - Shaping Our City, One Voice at a Time</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div class="auth-container fade-in" id="loginPage">
+        <div class="hero-section">
+            <div class="hero-illustration">👥</div>
+            <div class="hero-text">
+                <h2>Welcome to SpeakOut</h2>
+                <p>Your voice matters in building a better city</p>
+            </div>
+        </div>
+        <div class="form-section">
+            <div class="logo-section">
+                <h1>SpeakOut</h1>
+                <h2>Login</h2>
+                <p>Shaping Our City, One Voice at a Time</p>
+            </div>
+            
+            <!-- PERBAIKAN: Tambahkan onsubmit handler -->
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <input type="email" id="loginEmail" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <div class="input-wrapper">
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                        <span class="password-toggle" onclick="togglePassword('loginPassword')">👁️</span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+            </form>
+            
+            <div class="text-center">
+                <a href="#" onclick="alert('Forgot password feature coming soon!'); return false;">Forgot your password?</a>
+                <span class="divider">|</span>
+                <a href="view/regist.html">Sign up!</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="assets/script.js"></script>
+</body>
+</html>

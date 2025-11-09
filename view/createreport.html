@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Report - SpeakOut</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <!-- Create Report Page - HAPUS class "hidden" -->
+    <div class="dashboard-container fade-in" id="createReportPage">
+        <div class="sidebar">
+            <div class="sidebar-logo">
+                <h1>SpeakOut</h1>
+                <p>City Report System</p>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-item" onclick="showPage('dashboard')">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" onclick="showPage('reports')">
+                    <span class="nav-icon">📋</span>
+                    <span>My Reports</span>
+                </div>
+                <div class="nav-item active" onclick="showPage('createReport')">
+                    <span class="nav-icon">➕</span>
+                    <span>Create Report</span>
+                </div>
+                <div class="nav-item" onclick="showPage('profile')">
+                    <span class="nav-icon">👤</span>
+                    <span>Profile</span>
+                </div>
+            </div>
+            <div class="nav-item logout-btn" onclick="logout()">
+                <span class="nav-icon">🚪</span>
+                <span>Logout</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <h2 style="color: #2c3e50; font-size: 24px;">Create New Report</h2>
+                <div class="search-container"></div>
+                <div class="user-section">
+                    <div class="notification-btn" onclick="showNotification()">
+                        🔔
+                        <span class="notification-badge"></span>
+                    </div>
+                    <div class="user-info" onclick="showPage('profile')">
+                        <div class="user-avatar">DS</div>
+                        <div class="user-details">
+                            <h3>Dede Sutarjo</h3>
+                            <p>Bandung, Jawa Barat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <div class="detail-container">
+                    <div class="form-card">
+                        <h3 style="font-size: 24px; color: #2c3e50; margin-bottom: 30px;">Submit Your Report</h3>
+                        
+                        <div class="success-message" id="successMessage">
+                            ✓ Report submitted successfully! Your report ID is <strong id="newReportId"></strong>
+                        </div>
+
+                        <form id="createReportForm" onsubmit="handleSubmitReport(event)">
+                            <div class="form-row">
+                                <div class="form-group form-row-full">
+                                    <label>Report Title</label>
+                                    <input type="text" id="reportTitle" placeholder="Enter a clear and concise title" required minlength="10">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Report Category</label>
+                                    <select id="reportCategory" required>
+                                        <option value="">Select Category</option>
+                                        <option value="infrastructure">Infrastructure</option>
+                                        <option value="environment">Environment</option>
+                                        <option value="security">Security & Safety</option>
+                                        <option value="healthcare">Healthcare</option>
+                                        <option value="education">Education</option>
+                                        <option value="public-service">Public Service</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Location</label>
+                                    <input type="text" id="reportLocation" placeholder="Enter street address or location" required minlength="5">
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group form-row-full">
+                                    <label>Detailed Description</label>
+                                    <textarea id="reportDescription" placeholder="Provide a detailed description of the issue, including when it started and how it affects you or your community..." required minlength="20"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group form-row-full">
+                                    <label>Upload Photos or Videos (Optional)</label>
+                                    <div class="file-upload" onclick="document.getElementById('fileInput').click()">
+                                        <div class="file-upload-icon">📎</div>
+                                        <p style="color: #7f8c8d; margin-bottom: 5px; font-weight: 600;">Click to upload or drag and drop</p>
+                                        <p style="color: #95a5a6; font-size: 13px;">PNG, JPG, MP4 up to 10MB</p>
+                                        <div id="fileList" style="margin-top: 15px;"></div>
+                                    </div>
+                                    <input type="file" id="fileInput" accept="image/*,video/*" style="display: none;" multiple onchange="handleFileSelect(event)">
+                                </div>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px;">
+                                <button type="button" class="back-btn" style="width: 100%; padding: 16px;" onclick="handleCancel()">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Submit Report</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../assets/script.js"></script>
+</html>

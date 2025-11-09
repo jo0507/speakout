@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Detail - SpeakOut</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <div class="dashboard-container fade-in" id="reportDetailPage">
+        <div class="sidebar">
+            <div class="sidebar-logo">
+                <h1>SpeakOut</h1>
+                <p>City Report System</p>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-item" onclick="showPage('dashboard')">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item active" onclick="showPage('reports')">
+                    <span class="nav-icon">📋</span>
+                    <span>My Reports</span>
+                </div>
+                <div class="nav-item" onclick="showPage('createReport')">
+                    <span class="nav-icon">➕</span>
+                    <span>Create Report</span>
+                </div>
+                <div class="nav-item" onclick="showPage('profile')">
+                    <span class="nav-icon">👤</span>
+                    <span>Profile</span>
+                </div>
+            </div>
+            <div class="nav-item logout-btn" onclick="logout()">
+                <span class="nav-icon">🚪</span>
+                <span>Logout</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <h2 style="color: #2c3e50; font-size: 24px;">Report Details</h2>
+                <div class="search-container"></div>
+                <div class="user-section">
+                    <div class="notification-btn" onclick="showNotification()">
+                        🔔
+                        <span class="notification-badge"></span>
+                    </div>
+                    <div class="user-info" onclick="showPage('profile')">
+                        <div class="user-avatar">DS</div>
+                        <div class="user-details">
+                            <h3>Dede Sutarjo</h3>
+                            <p>Bandung, Jawa Barat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <div class="detail-container">
+                    <div class="detail-header">
+                        <h2 id="reportHeaderId">Report #...</h2>
+                        <button class="back-btn" onclick="showPage('reports')">← Back to Reports</button>
+                    </div>
+
+                    <div class="detail-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px;">
+                            <h3 id="reportTitle" style="font-size: 24px; color: #2c3e50;">Loading...</h3>
+                            <span id="reportStatus" class="status-badge status-inprocess" style="font-size: 14px; padding: 8px 16px;">In Process</span>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">Report ID</div>
+                            <div class="detail-value" id="reportId">-</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">Report Category</div>
+                            <div class="detail-value" id="reportCategory">-</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">Location</div>
+                            <div class="detail-value" id="reportLocation">-</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">Date Submitted</div>
+                            <div class="detail-value" id="reportDate">-</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">Description</div>
+                            <div class="detail-value" id="reportDescription">-</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">Photos / Video</div>
+                            <div class="report-image-preview">🖼️</div>
+                        </div>
+
+                        <div class="detail-row">
+                            <div class="detail-label">Status Updates</div>
+                            <div class="status-timeline" id="statusTimeline">
+                                <!-- Timeline will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px;">
+                            <button class="btn btn-danger" onclick="deleteReport()">🗑️ Delete Report</button>
+                            <button class="btn btn-primary" onclick="showPage('reports')">← Back to List</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/script.js"></script>
+</body>
+</html>

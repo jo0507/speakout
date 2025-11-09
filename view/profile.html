@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - SpeakOut</title>
+    <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+    <!-- Profile Page - HAPUS class "hidden" -->
+    <div class="dashboard-container fade-in" id="profilePage">
+        <div class="sidebar">
+            <div class="sidebar-logo">
+                <h1>SpeakOut</h1>
+                <p>City Report System</p>
+            </div>
+            <div class="nav-menu">
+                <div class="nav-item" onclick="showPage('dashboard')">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" onclick="showPage('reports')">
+                    <span class="nav-icon">📋</span>
+                    <span>My Reports</span>
+                </div>
+                <div class="nav-item" onclick="showPage('createReport')">
+                    <span class="nav-icon">➕</span>
+                    <span>Create Report</span>
+                </div>
+                <div class="nav-item active" onclick="showPage('profile')">
+                    <span class="nav-icon">👤</span>
+                    <span>Profile</span>
+                </div>
+            </div>
+            <div class="nav-item logout-btn" onclick="logout()">
+                <span class="nav-icon">🚪</span>
+                <span>Logout</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="top-bar">
+                <h2 style="color: #2c3e50; font-size: 24px;">Profile</h2>
+                <div class="search-container"></div>
+                <div class="user-section">
+                    <div class="notification-btn" onclick="showNotification()">
+                        🔔
+                        <span class="notification-badge"></span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">DS</div>
+                        <div class="user-details">
+                            <h3>Dede Sutarjo</h3>
+                            <p>Bandung, Jawa Barat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <div class="profile-container">
+                    <div class="profile-card">
+                        <div class="profile-avatar-large">👤</div>
+                        <h2>Dede Sutarjo</h2>
+                        <p>dedesutarjo@gmail.com</p>
+                        <p style="font-size: 14px; color: #95a5a6;">Bandung, Jawa Barat</p>
+                        <button class="btn btn-primary" style="max-width: 200px; margin: 20px auto 0;" onclick="editProfile()">✏️ Edit Profile</button>
+                        
+                        <div class="profile-stats">
+                            <div class="profile-stat">
+                                <div class="profile-stat-value">15</div>
+                                <div class="profile-stat-label">Total Reports</div>
+                            </div>
+                            <div class="profile-stat">
+                                <div class="profile-stat-value">10</div>
+                                <div class="profile-stat-label">Finished</div>
+                            </div>
+                            <div class="profile-stat">
+                                <div class="profile-stat-value">3</div>
+                                <div class="profile-stat-label">In Process</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 18px; color: #2c3e50; margin-bottom: 20px;">Account Settings</h3>
+                    <div class="menu-grid">
+                        <div class="menu-card" onclick="openSetting('notifications')">
+                            <div class="menu-card-icon">🔔</div>
+                            <div class="menu-card-text">
+                                <h4>Notification Settings</h4>
+                                <p>Manage your alerts</p>
+                            </div>
+                        </div>
+                        <div class="menu-card" onclick="openSetting('password')">
+                            <div class="menu-card-icon">🔒</div>
+                            <div class="menu-card-text">
+                                <h4>Change Password</h4>
+                                <p>Update your security</p>
+                            </div>
+                        </div>
+                        <div class="menu-card" onclick="openSetting('theme')">
+                            <div class="menu-card-icon">🌙</div>
+                            <div class="menu-card-text">
+                                <h4>Display Mode</h4>
+                                <p>Light or dark theme</p>
+                            </div>
+                        </div>
+                        <div class="menu-card" onclick="openSetting('language')">
+                            <div class="menu-card-icon">🌐</div>
+                            <div class="menu-card-text">
+                                <h4>Language</h4>
+                                <p>Change app language</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 18px; color: #2c3e50; margin-bottom: 20px; margin-top: 30px;">Help & Information</h3>
+                    <div class="menu-grid">
+                        <div class="menu-card" onclick="openHelp('faq')">
+                            <div class="menu-card-icon">❓</div>
+                            <div class="menu-card-text">
+                                <h4>Help Center (FAQs)</h4>
+                                <p>Get answers quickly</p>
+                            </div>
+                        </div>
+                        <div class="menu-card" onclick="openHelp('contact')">
+                            <div class="menu-card-icon">📞</div>
+                            <div class="menu-card-text">
+                                <h4>Contact Us</h4>
+                                <p>Reach our support team</p>
+                            </div>
+                        </div>
+                        <div class="menu-card" onclick="openHelp('privacy')">
+                            <div class="menu-card-icon">🔒</div>
+                            <div class="menu-card-text">
+                                <h4>Privacy Policy</h4>
+                                <p>Read our terms</p>
+                            </div>
+                        </div>
+                        <div class="menu-card" onclick="openHelp('about')">
+                            <div class="menu-card-icon">ℹ️</div>
+                            <div class="menu-card-text">
+                                <h4>About SpeakOut</h4>
+                                <p>Learn more about us</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-danger" style="margin-top: 30px; max-width: 300px;" onclick="logout()">🚪 Logout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../assets/script.js"></script>
+</html>
